@@ -27,19 +27,30 @@
       <!-- partial:partials/_sidebar.html -->
       @include('admin.sidebar');
       <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_navbar.html -->
-        @include('admin.navbar');
-        <!-- partial -->
-        @include('admin.body');
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          @include('admin.footer');
-          <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:partials/_navbar.html -->
+            @include('admin.navbar');
+            <!-- partial -->
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div style="text-align: center; padding-top:40px;">
+                            <h2 style="font-size: 40px; padding-bottom:40px;">Add New Category</h2>
+
+                            <form action="POST">
+                                <input type="text" name="category_name" placeholder="Category Name">
+                                <input type="submit" class="btn btn-primary" name="submit" value="Add Category">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            @include('admin.footer');
+            <!-- partial -->
         </div>
         <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->

@@ -19,8 +19,8 @@ class HomeController extends Controller
             return view('admin.dashboard');
         }
         else{
-            // return view('home.userpage');
-            return redirect('/');
+            return view('home.userpage');
+            // return redirect('/');
         }
     }
 }

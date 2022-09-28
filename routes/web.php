@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +16,15 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
+    Route::get('/category', 'App\Http\Controllers\AdminController@category')->name('category');
+});
 
 require __DIR__.'/auth.php';
 
-Route::get('/admin/dashboard',[App\Http\Controllers\HomeController::class, 'dashboard'])->name('admin.dashboard');
+// Route::get('/admin/dashboard',[App\Http\Controllers\HomeController::class, 'dashboard'])->name('admin.dashboard');
