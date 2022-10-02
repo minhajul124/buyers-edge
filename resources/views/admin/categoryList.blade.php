@@ -33,23 +33,33 @@
             <!-- partial -->
                 <div class="main-panel">
                     <div class="content-wrapper">
-                        <div style="text-align: center; padding-top:40px;">
-                            <h2 style="font-size: 40px; padding-bottom:40px;">Add New Category</h2>
-
-                            <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">
-                              @csrf
-                              {{method_field('PUT')}}
-                              <div style="border: 1px solid white; padding: 20px" >
-                                <x-label style="font-size: 20px; padding-bottom:40px;" for="category_name" :value="__('Category Name')" />
-                                <input type="text" name="category_name" placeholder="Category Name">
-                                <br>
-                                <x-label style="font-size: 20px; padding-bottom:40px;" for="category_image" :value="__('Category Image')" />
-                                <input type="file" name="category_image">
-                                <br>
-                                <input type="submit" class="btn btn-primary" name="submit" value="Add Category">
-                              </div>
+                    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            @if(count($category) > 0)
+                @foreach ($category as $item)
+                <tr>
+                    <th scope="row">{{$item->id}}</th>
+                    <td>{{$item->category_image}}</td>
+                    <td>{{$item->category_name}}</td>
+                    <td>
+                        
                             </form>
-                        </div>
+                          </div>
+                      </div>
+                    </td>
+                  </tr>
+                @endforeach
+            @endif
+        </tbody>
+      </table>
                     </div>
                 </div>
             <!-- content-wrapper ends -->

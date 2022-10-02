@@ -23,6 +23,8 @@ Route::get('/',[App\Http\Controllers\HomeController::class, 'index'])->name('ind
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
     Route::get('/category', 'App\Http\Controllers\AdminController@category')->name('category');
+    Route::put('/category/store',[App\Http\Controllers\AdminController::class, 'store'])->name('category.store');
+    Route::get('/categorylist',[App\Http\Controllers\AdminController::class, 'list'])->name('category.list');
 });
 
 require __DIR__.'/auth.php';
