@@ -47,8 +47,12 @@
                 @foreach ($category as $item)
                 <tr>
                     <th scope="row">{{$item->id}}</th>
-                    <td>{{$item->category_image}}</td>
+                    <!-- <img src="{{url($item->category_image)}}" width="25%"> -->
+                    <!-- <img src="{{ asset($item->category_image) }}" /> -->
+                    <td><img src="{{url($item->category_image)}}" alt=""></td>
+                    <!-- <td>{{$item->category_image}}</td> -->
                     <td>{{$item->category_name}}</td>
+                    <td><a onlick="return confirm('Confirm to delete')" class="btn btn-danger" href="{{url('delete_category', $item->id)}}">Delete</a></td>
                     <td>
                         
                             </form>

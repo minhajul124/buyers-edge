@@ -29,12 +29,21 @@ class AdminController extends Controller
 
         $category->save();
 
-        return redirect()->route('categorylist')->with('success', 'New Category created successfully');
+        return redirect()->route('category.list')->with('success', 'New Category created successfully');
     }
 
     public function list()
     {
         $category = Category::all();
         return view('admin.categoryList', compact('category'));
+    }
+
+    public function destroy($id)
+    {
+        $project = Category::find($id);
+        @unlink(public_path($project->category_image));
+        $project->delete();
+        
+        return redirect()->route('category.list')->with('success', 'Category deleted successfully');
     }
 }

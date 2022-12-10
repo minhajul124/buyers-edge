@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/category', 'App\Http\Controllers\AdminController@category')->name('category');
     Route::put('/category/store',[App\Http\Controllers\AdminController::class, 'store'])->name('category.store');
     Route::get('/categorylist',[App\Http\Controllers\AdminController::class, 'list'])->name('category.list');
+    Route::get('/delete_category/{id}',[App\Http\Controllers\AdminController::class, 'destroy'])->name('category.destroy');
 });
 
 require __DIR__.'/auth.php';
