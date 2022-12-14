@@ -26,6 +26,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::put('/category/store',[App\Http\Controllers\AdminController::class, 'store'])->name('category.store');
     Route::get('/categorylist',[App\Http\Controllers\AdminController::class, 'list'])->name('category.list');
     Route::get('/delete_category/{id}',[App\Http\Controllers\AdminController::class, 'destroy'])->name('category.destroy');
+
+    Route::get('/add_product',[App\Http\Controllers\AdminController::class, 'add_product'])->name('product');
+    Route::post('/store_product',[App\Http\Controllers\AdminController::class, 'store_product'])->name('product');
+
+    // route::get('/add_product', [AdminController::class, 'add_product']);
 });
 
 require __DIR__.'/auth.php';

@@ -46,4 +46,13 @@ class AdminController extends Controller
         
         return redirect()->route('category.list')->with('success', 'Category deleted successfully');
     }
+
+    public function add_product(){
+        $category = category::all();
+        return view('admin.product', compact('category'));
+    }
+
+    public function store_product(Request $request){
+
+    }
 }
