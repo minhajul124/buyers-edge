@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\storage;
 use App\Models\Category;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -54,5 +55,26 @@ class AdminController extends Controller
 
     public function store_product(Request $request){
 
+        $product = new product;
+
+        $product -> title = $request -> product_title;
+        $product -> description = $request -> product_description;
+        $product -> price = $request -> product_price;
+        $product -> discount_price = $request -> discount_price;
+        $product -> quantity = $request -> product_quantity;
+        $product -> category = $request -> category;
+
+        // $image = $request -> product_image;
+        // $imagename = time(). '.'.$image->getClientOriginalExtension();
+        // $request -> product_image->move('product',$imagename);
+        // $product -> product_image = $imagename;
+
+        $image = $request -> file('image');
+        Storage::putFile('public/img', $image);
+        $product->image = "storage/img/".$image->hashName();
+
+        $product -> save();
+
+        return redirect() -> back();
     }
 }

@@ -47,7 +47,7 @@
                                 <input type="text" name="product_description" placeholder="Product Description" Required>
                                 <br>
                                 <x-label style="font-size: 20px; padding-bottom:40px;" for="product_image" :value="__('Product Image')" />
-                                <input type="file" name="product_image" Required>
+                                <input type="file" name="image" Required>
                                 <br>
                                 <x-label style="font-size: 20px; padding-bottom:40px;" for="product_price" :value="__('Product Price')" />
                                 <input type="number" name="product_price" placeholder="Product Price" Required>
