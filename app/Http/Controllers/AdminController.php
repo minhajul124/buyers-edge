@@ -77,4 +77,10 @@ class AdminController extends Controller
 
         return redirect() -> back();
     }
+
+    public function all_product(){
+
+        $product = product::all();
+        return view('admin.all_product', compact('product'));
+    }
 }

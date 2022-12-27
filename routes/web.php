@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/add_product',[App\Http\Controllers\AdminController::class, 'add_product'])->name('product');
     Route::put('/store_product',[App\Http\Controllers\AdminController::class, 'store_product'])->name('store_product');
 
-    // route::get('/add_product', [AdminController::class, 'add_product']);
+    route::get('/all_product', [AdminController::class, 'all_product']);
 });
 
 require __DIR__.'/auth.php';
